@@ -239,6 +239,7 @@ def mettre_a_jour(etat, cours: dict, maintenant=None, stop_actif=False, max_ratt
     else:
         a_jouer = [d for d in dates if d > etat["derniere_date"]][-max_rattrapage:]
     index = {s: [b["date"] for b in bs] for s, bs in cours.items()}
+    etat["dernier_lot"] = a_jouer
     for d in a_jouer:
         tranche = {}
         for s, bs in cours.items():
@@ -418,7 +419,8 @@ def executer_actions(chemin_etat, dossier_page, dossier_stop, telecharger=None, 
     generer_page_actions(etat, resume(etat), dossier_page, erreurs)
     if bavard:
         r = resume(etat)
-        print(f"Actions réelles : {joues} séance(s) jouée(s), dernière {etat['derniere_date']} | "
+        lot = ", ".join(etat.get("dernier_lot", [])) if joues else "aucune nouvelle"
+        print(f"Actions réelles : {joues} séance(s) jouée(s) ({lot}), dernière {etat['derniere_date']} | "
               f"valeur {r['valeur']:.2f} $ ({r['perf']:+.1%}) vs indice {r['perf_indice']:+.1%}"
               + (f" | {len(erreurs)} erreur(s) de données" if erreurs else ""))
     return etat, joues, erreurs
