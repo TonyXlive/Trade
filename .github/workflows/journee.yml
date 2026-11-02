@@ -1,0 +1,66 @@
+# Chaque matin : le bot joue une journée sur les deux portefeuilles fictifs (marchés fictifs
+# et actions réelles) et publie la page de suivi.
+name: Journée du bot
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # vers 6 h 17 à Paris en hiver (7 h 17 en été)
+  workflow_dispatch:        # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: journee
+  cancel-in-progress: false
+
+jobs:
+  journee:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publication.outputs.page_url }}
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Vérifier le code (tests automatiques)
+        run: python -m unittest discover -s tests
+
+      - name: Récupérer le portefeuille sauvegardé
+        run: |
+          if git fetch origin etat --depth=1 2>/dev/null; then
+            git checkout FETCH_HEAD -- etat && git reset -q || true
+          else
+            echo "Premier lancement : un nouveau portefeuille va être créé."
+          fi
+
+      - name: Jouer la journée
+        run: python -m bot.portefeuille
+
+      - name: Sauvegarder le portefeuille (branche « etat »)
+        run: |
+          git config user.name "bot-portefeuille"
+          git config user.email "bot-portefeuille@users.noreply.github.com"
+          git checkout -q --orphan sauvegarde-temp
+          git rm -rqf --cached .
+          git add -f etat
+          git commit -qm "Portefeuille au $(date +%F)"
+          git push -fq origin HEAD:etat
+
+      - name: Préparer la page
+        continue-on-error: true   # la page nécessite GitHub Pages activé ; le bot tourne même sans
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Publier la page
+        id: publication
+        continue-on-error: true
+        uses: actions/deploy-pages@v4

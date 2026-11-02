@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+etat/
+docs/
+sortie/
+STOP.local
+etat_journal.txt

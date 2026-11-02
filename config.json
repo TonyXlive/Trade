@@ -1,0 +1,76 @@
+{
+  "graine_aleatoire": 42,
+  "jours_simulation": 90,
+  "capital_depart": 10000,
+  "marches": {
+    "nouveaux_par_jour": 40,
+    "bruit_prix_marche": 0.06,
+    "frais_par_contrat": 0.01,
+    "biais_modeles_par_categorie": {
+      "crypto": 0.08
+    },
+    "categories": [
+      "politique",
+      "economie",
+      "meteo",
+      "sport",
+      "crypto",
+      "culture"
+    ]
+  },
+  "scan": {
+    "volume_min_contrats": 200,
+    "jours_max_avant_echeance": 30,
+    "liquidite_min": 500,
+    "seuil_ecart_prix_anormal": 0.05,
+    "seuil_mouvement_anormal": 0.1
+  },
+  "modeles": [
+    {
+      "nom": "Prevision principale",
+      "poids": 0.3,
+      "bruit": 0.07
+    },
+    {
+      "nom": "Analyste actualite",
+      "poids": 0.2,
+      "bruit": 0.09
+    },
+    {
+      "nom": "Avocat haussier",
+      "poids": 0.2,
+      "bruit": 0.1,
+      "biais": 0.03
+    },
+    {
+      "nom": "Avocat baissier",
+      "poids": 0.15,
+      "bruit": 0.1,
+      "biais": -0.03
+    },
+    {
+      "nom": "Gestionnaire risque",
+      "poids": 0.15,
+      "bruit": 0.08
+    }
+  ],
+  "prediction": {
+    "avantage_min": 0.04,
+    "correlation_avec_marche": 0.5,
+    "accord_min_modeles": 0.6,
+    "cout_appel_ia": 0.04
+  },
+  "risque": {
+    "fraction_kelly": 0.25,
+    "max_par_position": 0.05,
+    "max_exposition_totale": 0.25,
+    "max_positions": 15,
+    "max_perte_jour": 0.15,
+    "max_drawdown": 0.08,
+    "var95_max_jour": 0.15,
+    "max_cout_ia_jour": 50,
+    "slippage_max": 0.02,
+    "max_ordres_jour": 8,
+    "max_risque_engage_jour": 0.15
+  }
+}
