@@ -49,8 +49,8 @@ def _date_jour(meta, j):
     return date.fromisoformat(d) if d else None
 
 
-def _ligne_evt(titre, detail, montant=None):
-    m = f"<b class='{_classe(montant)}'>{_signe(montant)}</b>" if montant is not None else ""
+def _ligne_evt(titre, detail, montant=None, devise=" €"):
+    m = f"<b class='{_classe(montant)}'>{_signe(montant, devise)}</b>" if montant is not None else ""
     return f"<div class='evt'><div>{titre}<small>{detail}</small></div><div>{m}</div></div>"
 
 

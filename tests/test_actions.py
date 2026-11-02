@@ -288,3 +288,136 @@ class TestExecution(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestJournal(unittest.TestCase):
+    def test_journal_liste_chaque_achat_et_vente(self):
+        d = tempfile.mkdtemp()
+        try:
+            e = ar.etat_vide()
+            e["date_debut"] = e["derniere_date"] = "2026-11-03"
+            e["positions"].append({"symbole": "LLY", "date_entree": "2026-11-03", "prix_entree": 1418.25, "actions": 1,
+                                   "cout": 1418.25, "stop": 1321.06, "objectif": 1612.63, "jours": 0,
+                                   "dernier_cours": 1418.0, "perte_max": 97.19})
+            e["transactions"].append({"symbole": "XOM", "date_entree": "2026-10-20", "prix_entree": 180.0, "actions": 10,
+                                      "cout": 1800.0, "stop": 172.0, "objectif": 196.0, "jours": 5,
+                                      "dernier_cours": 196.0, "perte_max": 80.0, "date_sortie": "2026-10-27",
+                                      "prix_sortie": 195.9, "motif": "objectif", "pnl": 159.0, "r": 1.99})
+            e["historique"].append({"date": "2026-11-03", "valeur": 10100, "indice": 10050, "entrees": ["LLY"],
+                                    "sorties": [], "bloque": False})
+            from bot.suivi_actions import generer_page_actions
+            generer_page_actions(e, ar.resume(e), d, [])
+            with open(os.path.join(d, "actions.html"), encoding="utf-8") as f:
+                page = f.read()
+            self.assertIn("Tous les achats et ventes", page)
+            self.assertIn("Eli Lilly (LLY)", page)
+            self.assertIn("ExxonMobil (XOM)", page)
+            self.assertIn("vendu le 27 oct.", page)
+            self.assertIn("en cours", page)
+            self.assertLess(page.index("Eli Lilly (LLY) <span"), page.index("ExxonMobil (XOM)</div>") if "ExxonMobil (XOM)</div>" in page else len(page))
+        finally:
+            shutil.rmtree(d)
+
+    def test_tous_les_symboles_ont_un_nom(self):
+        for s in [ar.INDICE] + ar.LISTE:
+            self.assertIn(s, ar.NOMS)
+
+
+class TestApprentissage(unittest.TestCase):
+    def _cours(self, n=420):
+        c = {"SPY": serie(n, graine=0, derive=0.0005)}
+        for i, s in enumerate(ar.LISTE[:12]):
+            c[s] = serie(n, graine=i + 30, derive=0.002, vol=0.015)
+        return c
+
+    def test_variantes_creees_et_distinctes(self):
+        e = ar.etat_vide()
+        v = ar.assurer_variantes(e)
+        self.assertEqual(set(v), set(ar.CANDIDATS) - {"Règle de départ"})
+        for n, x in v.items():
+            self.assertEqual(x["reglages"], ar.CANDIDATS[n])
+
+    def test_regles_variante_appliquees(self):
+        e = ar.etat_vide()
+        e["reglages"] = {"atr_stop": 1.5}
+        self.assertEqual(ar.regles_de(e)["atr_stop"], 1.5)
+        self.assertEqual(ar.regles_de(ar.etat_vide())["atr_stop"], 2.0)
+
+    def test_pas_d_adoption_trop_tot(self):
+        cours = self._cours(280)
+        dates = [b["date"] for b in cours["SPY"]]
+        e = ar.etat_vide()
+        for i in range(250, 280):
+            t = {s: [b for b in bs if b["date"] <= dates[i]] for s, bs in cours.items()}
+            ar.mettre_a_jour(e, t, maintenant_apres(dates[i]))
+            for v in ar.assurer_variantes(e).values():
+                ar.mettre_a_jour(v, t, maintenant_apres(dates[i]))
+            self.assertIsNone(ar.evaluer_adoption(e))
+        self.assertEqual(ar.nom_regle(e), "Règle de départ")
+
+    def test_adoption_quand_nettement_meilleure(self):
+        e = ar.etat_vide()
+        ar.assurer_variantes(e)
+        # Faux historiques : la variante « Stop plus large » fait +10 points sur 130 séances
+        jours = [d.isoformat() for d in jours_bourse(date(2026, 10, 30), 130)]
+        e["historique"] = [{"date": d, "valeur": 10000 + i, "indice": 10000, "entrees": [], "sorties": [], "bloque": False}
+                           for i, d in enumerate(jours)]
+        e["derniere_date"] = jours[-1]
+        tx = {"date_entree": jours[5], "pnl": 1, "r": 0.1}
+        e["transactions"] = [dict(tx) for _ in range(70)]
+        v = e["variantes"]["Stop plus large"]
+        v["historique"] = [{"date": d, "valeur": 10000 + i * 9, "indice": 10000, "entrees": [], "sorties": [],
+                            "bloque": False} for i, d in enumerate(jours)]
+        v["transactions"] = [dict(tx) for _ in range(70)]
+        chg = ar.evaluer_adoption(e)
+        self.assertIsNotNone(chg)
+        self.assertEqual(chg["nouvelle"], "Stop plus large")
+        self.assertEqual(ar.regles_de(e)["atr_stop"], 3.0)
+        self.assertIn("Règle de départ", e["variantes"], "l'ancienne règle redevient une variante")
+        self.assertNotIn("Stop plus large", e["variantes"])
+        self.assertTrue(all(not x["historique"] for x in e["variantes"].values()), "comparaison repart de zéro")
+
+    def test_pas_d_adoption_si_baisse_plus_forte(self):
+        e = ar.etat_vide()
+        ar.assurer_variantes(e)
+        jours = [d.isoformat() for d in jours_bourse(date(2026, 10, 30), 130)]
+        e["historique"] = [{"date": d, "valeur": 10000 + i, "indice": 10000, "entrees": [], "sorties": [], "bloque": False}
+                           for i, d in enumerate(jours)]
+        e["derniere_date"] = jours[-1]
+        tx = {"date_entree": jours[5], "pnl": 1, "r": 0.1}
+        e["transactions"] = [dict(tx) for _ in range(70)]
+        v = e["variantes"]["Stop plus large"]
+        vals = [10000 + i * 9 for i in range(130)]
+        vals[60] = 7000  # chute de 30 % en cours de route
+        v["historique"] = [{"date": d, "valeur": x, "indice": 10000, "entrees": [], "sorties": [], "bloque": False}
+                           for d, x in zip(jours, vals)]
+        v["transactions"] = [dict(tx) for _ in range(70)]
+        self.assertIsNone(ar.evaluer_adoption(e))
+
+    def test_criteres_prod(self):
+        e = ar.etat_vide()
+        crit = ar.criteres_prod(e, ar.resume(e))
+        self.assertEqual(len(crit), 5)
+        self.assertFalse(any(ok for _, ok, _ in crit))
+
+    def test_bout_en_bout_avec_variantes(self):
+        d = tempfile.mkdtemp()
+        try:
+            series = {s: serie(260, graine=i, derive=0.003, vol=0.01) for i, s in enumerate(["SPY"] + ar.LISTE)}
+
+            def faux(url):
+                for s, b in series.items():
+                    if f"/chart/{s}?" in url:
+                        return en_yahoo(b)
+                raise OSError("inconnu")
+            etat, _, _ = ar.executer_actions(os.path.join(d, "etat", "actions.json"), d, d, telecharger=faux,
+                                             maintenant=maintenant_apres(series["SPY"][-1]["date"]), bavard=False)
+            self.assertEqual(len(etat["variantes"]), 4)
+            for v in etat["variantes"].values():
+                self.assertEqual(len(v["historique"]), 1)
+            with open(os.path.join(d, "actions.html"), encoding="utf-8") as f:
+                page = f.read()
+            self.assertIn("Ce que le bot apprend", page)
+            self.assertIn("Prêt pour de l'argent réel ?", page)
+        finally:
+            shutil.rmtree(d)
