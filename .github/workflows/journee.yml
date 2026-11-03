@@ -4,9 +4,12 @@ name: Journée du bot
 
 on:
   schedule:
-    # GitHub ne connaît que l'heure UTC : deux créneaux, et seul celui qui tombe à 4 h à Paris joue
-    - cron: "3 2 * * *"    # 4 h 03 à Paris en été
-    - cron: "3 3 * * *"    # 4 h 03 à Paris en hiver
+    # GitHub ne connaît que l'heure UTC et saute parfois un créneau : plusieurs essais par nuit.
+    # Seuls ceux qui tombent entre 4 h et 7 h à Paris jouent ; une séance n'est jamais jouée deux fois.
+    - cron: "17,47 2 * * *"
+    - cron: "17,47 3 * * *"
+    - cron: "17,47 4 * * *"
+    - cron: "17,47 5 * * *"
   workflow_dispatch:        # bouton « Run workflow » pour lancer à la main
 
 permissions:
@@ -29,8 +32,7 @@ jobs:
         id: heure
         run: |
           h=$(TZ=Europe/Paris date +%H)
-          # 4 h, 5 h ou 6 h acceptés : GitHub retarde parfois les lancements. Un 2e passage le même jour ne rejoue rien.
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$h" != "04" ] && [ "$h" != "05" ] && [ "$h" != "06" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] && { [ "$h" -lt 4 ] || [ "$h" -gt 7 ]; }; then
             echo "Il est ${h} h à Paris : ce créneau ne joue pas."
             echo "jouer=non" >> "$GITHUB_OUTPUT"
           else
