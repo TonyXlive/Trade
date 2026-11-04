@@ -79,7 +79,11 @@ def cours_journaliers(symbole: str, telecharger=_telecharger) -> tuple:
             erreurs.append(f"Yahoo {hote} : {e}")
             time.sleep(0.5) if telecharger is _telecharger else None
     try:
-        url = f"https://stooq.com/q/d/l/?s={symbole.lower().replace('.', '-')}.us&i=d"
+        if symbole.endswith("=X"):   # devise, ex. EURUSD=X -> eurusd
+            code = symbole[:-2].lower()
+        else:
+            code = symbole.lower().replace(".", "-") + ".us"
+        url = f"https://stooq.com/q/d/l/?s={code}&i=d"
         return lire_stooq(telecharger(url)), "Stooq"
     except Exception as e:  # noqa: BLE001
         erreurs.append(f"Stooq : {e}")

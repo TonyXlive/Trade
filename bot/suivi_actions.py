@@ -23,6 +23,12 @@ def _actions(n):
     return f"{n} action" + ("s" if n > 1 else "")
 
 
+def _quand(x):
+    if not x or len(x) < 16:
+        return "—"
+    return f"{x[8:10]}/{x[5:7]}/{x[:4]} à {x[11:16]}"
+
+
 def _d(iso):
     d = date.fromisoformat(iso)
     return f"{d.day} {MOIS_COURT[d.month-1]}"
@@ -174,9 +180,9 @@ def generer_page_actions(etat, res, dossier, erreurs_du_jour):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Actions réelles</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icone.svg"><meta name="theme-color" content="#2f5d8a">
 <style>{STYLE}{STYLE_SUIVI}{STYLE_ACTIONS}</style></head><body><main>
-{NAV.format(a1="", a2="actif")}
+{NAV.format(a1="", a2="actif", a3="")}
 <div class="tete"><h1>Actions réelles</h1><span class="badge">cours réels · argent fictif</span></div>
-<p class="sous">Séance du {titre_date} · mis à jour le {html.escape(etat.get('derniere_execution') or '—')}</p>
+<p class="sous">Séance du {titre_date} · mis à jour le {_quand(etat.get('derniere_execution'))}</p>
 {''.join(f'<div class="alerte">{a}</div>' for a in alertes)}
 <div class="carte"><div class="sous" style="margin:0">Valeur du portefeuille</div>
 <div class="valeur">{_num(res['valeur'])} $</div>

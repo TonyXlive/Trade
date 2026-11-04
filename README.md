@@ -48,6 +48,9 @@ python -m bot.portefeuille --nouveau  # repart de zéro
   maximale par position. Le bot est comparé chaque jour à un simple placement sur l'indice
   S&P 500 : s'il ne fait pas mieux, il ne sert à rien. Cours gratuits Yahoo (secours Stooq),
   aucun ordre réel. Ce mode a besoin d'internet : il tourne sur GitHub ou sur ton PC.
+- **Mes 50 €/mois** : ta situation réelle. Deux portefeuilles partent de zéro et reçoivent
+  50 € au début de chaque mois (vrai taux euro/dollar). L'un suit le bot avec des morceaux
+  d'action, l'autre achète l'indice S&P 500 chaque mois. Mêmes frais : 1 $ par ordre.
 
 ### Option A — sur GitHub (rien à laisser allumé, page lisible sur le téléphone)
 1. Créer un dépôt **public** sur GitHub et y mettre le contenu de ce dossier
@@ -94,7 +97,7 @@ backtest à « 68 % de réussite » ne prouve rien : regardez la répartition.
 ```
 python -m unittest discover -s tests -v
 ```
-62 tests : calcul de Kelly, chaque règle de risque, arrêt d'urgence, comptabilité,
+82 tests : calcul de Kelly, chaque règle de risque, arrêt d'urgence, comptabilité,
 respect des plafonds jour par jour, détection du biais, rapports, et pour le mode
 quotidien : reprise, rattrapage, un seul jour joué par jour réel, arrêt puis reprise ;
 pour les actions réelles : lecture des cours, secours en cas de panne, stops, objectifs,

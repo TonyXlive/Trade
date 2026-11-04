@@ -395,11 +395,15 @@ def telecharger_tout(telecharger=None):
     return cours, erreurs, sources
 
 
-def executer_actions(chemin_etat, dossier_page, dossier_stop, telecharger=None, maintenant=None, bavard=True):
+def executer_actions(chemin_etat, dossier_page, dossier_stop, telecharger=None, maintenant=None, bavard=True,
+                     cours=None, erreurs_cours=None):
     from .suivi_actions import generer_page_actions
     etat = charger_etat(chemin_etat)
     stop = os.path.exists(os.path.join(dossier_stop, "STOP"))
-    cours, erreurs, _sources = telecharger_tout(telecharger)
+    if cours is None:
+        cours, erreurs, _sources = telecharger_tout(telecharger)
+    else:
+        erreurs = list(erreurs_cours or [])
     joues = 0
     try:
         joues = mettre_a_jour(etat, cours, maintenant, stop)

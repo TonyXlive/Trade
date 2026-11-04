@@ -134,11 +134,34 @@ def main(argv=None):
     executer(nouveau=a.nouveau, statut=a.statut, config=a.config)
     if not a.sans_actions and not a.statut:
         # Un problème de données sur les actions réelles ne doit jamais bloquer le reste
-        try:
-            from bot.actions_reelles import executer_actions
-            executer_actions(os.path.join(DOSSIER_ETAT, "actions.json"), DOSSIER_PAGE, RACINE)
-        except Exception as e:  # noqa: BLE001
-            print(f"Actions réelles : échec ({e}). Le portefeuille sur marchés fictifs est à jour.")
+        executer_reels()
+
+
+def executer_reels(telecharger=None, maintenant=None, dossier_etat=DOSSIER_ETAT, dossier_page=DOSSIER_PAGE,
+                   dossier_stop=RACINE, bavard=True):
+    """Télécharge les vrais cours une seule fois, puis met à jour « Actions réelles » et « Mes 50 €/mois ».
+    Un problème sur l'un ne bloque jamais l'autre ni les marchés fictifs."""
+    from bot.actions_reelles import executer_actions, telecharger_tout
+    from bot.mensuel import executer_mensuel, telecharger_devise, DEVISE
+    try:
+        cours, erreurs, _ = telecharger_tout(telecharger)
+    except Exception as e:  # noqa: BLE001
+        print(f"Cours réels : échec du téléchargement ({e}).")
+        return
+    try:
+        executer_actions(os.path.join(dossier_etat, "actions.json"), dossier_page, dossier_stop,
+                         maintenant=maintenant, bavard=bavard, cours=cours, erreurs_cours=erreurs)
+    except Exception as e:  # noqa: BLE001
+        print(f"Actions réelles : échec ({e}).")
+    try:
+        devise, err = telecharger_devise(telecharger)
+        cours_m = dict(cours)
+        if devise:
+            cours_m[DEVISE] = devise
+        executer_mensuel(os.path.join(dossier_etat, "mensuel.json"), dossier_page, cours_m,
+                         erreurs + ([err] if err else []), maintenant=maintenant, bavard=bavard)
+    except Exception as e:  # noqa: BLE001
+        print(f"Mes 50 €/mois : échec ({e}).")
 
 
 if __name__ == "__main__":
