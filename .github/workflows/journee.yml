@@ -4,12 +4,9 @@ name: Journée du bot
 
 on:
   schedule:
-    # GitHub ne connaît que l'heure UTC et saute parfois un créneau : plusieurs essais par nuit.
-    # Seuls ceux qui tombent entre 4 h et 7 h à Paris jouent ; une séance n'est jamais jouée deux fois.
-    - cron: "17,47 2 * * *"
-    - cron: "17,47 3 * * *"
-    - cron: "17,47 4 * * *"
-    - cron: "17,47 5 * * *"
+    # Essai toutes les heures : GitHub retarde ou saute souvent les tâches programmées.
+    # Le bot joue dès qu'il y a une séance terminée à jouer, et ne rejoue jamais deux fois la même.
+    - cron: "17 * * * *"
   workflow_dispatch:        # bouton « Run workflow » pour lancer à la main
 
 permissions:
@@ -28,32 +25,17 @@ jobs:
       name: github-pages
       url: ${{ steps.publication.outputs.page_url || '' }}
     steps:
-      - name: Vérifier l'heure (4 h à Paris)
-        id: heure
-        run: |
-          h=$(TZ=Europe/Paris date +%H)
-          if [ "${{ github.event_name }}" = "schedule" ] && { [ "$h" -lt 4 ] || [ "$h" -gt 7 ]; }; then
-            echo "Il est ${h} h à Paris : ce créneau ne joue pas."
-            echo "jouer=non" >> "$GITHUB_OUTPUT"
-          else
-            echo "jouer=oui" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Récupérer le code
-        if: steps.heure.outputs.jouer == 'oui'
         uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
-        if: steps.heure.outputs.jouer == 'oui'
         with:
           python-version: "3.12"
 
       - name: Vérifier le code (tests automatiques)
-        if: steps.heure.outputs.jouer == 'oui'
         run: python -m unittest discover -s tests
 
       - name: Récupérer le portefeuille sauvegardé
-        if: steps.heure.outputs.jouer == 'oui'
         run: |
           if git fetch origin etat --depth=1 2>/dev/null; then
             git checkout FETCH_HEAD -- etat && git reset -q || true
@@ -62,11 +44,9 @@ jobs:
           fi
 
       - name: Jouer la journée
-        if: steps.heure.outputs.jouer == 'oui'
         run: python -m bot.portefeuille
 
       - name: Sauvegarder le portefeuille (branche « etat »)
-        if: steps.heure.outputs.jouer == 'oui'
         run: |
           git config user.name "bot-portefeuille"
           git config user.email "bot-portefeuille@users.noreply.github.com"
@@ -77,14 +57,12 @@ jobs:
           git push -fq origin HEAD:etat
 
       - name: Préparer la page
-        if: steps.heure.outputs.jouer == 'oui'
         continue-on-error: true   # la page nécessite GitHub Pages activé ; le bot tourne même sans
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
 
       - name: Publier la page
-        if: steps.heure.outputs.jouer == 'oui'
         id: publication
         continue-on-error: true
         uses: actions/deploy-pages@v4

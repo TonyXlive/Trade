@@ -54,8 +54,8 @@ python -m bot.portefeuille --nouveau  # repart de zéro
    (la page gratuite de GitHub ne fonctionne pas sur un dépôt privé).
 2. Dans le dépôt : **Settings → Pages → Source : GitHub Actions**.
 3. **Actions → Journée du bot → Run workflow** pour le premier lancement.
-4. Ensuite, le bot tourne seul chaque nuit vers 4 h (heure de Paris, été comme hiver ;
-   GitHub peut avoir quelques minutes de retard). La page est à l'adresse
+4. Ensuite, le bot tourne seul : GitHub le lance toutes les heures, et il joue chaque séance
+   dès qu'elle est terminée (GitHub a souvent plusieurs heures de retard ; ce n'est pas grave). La page est à l'adresse
    `https://<pseudo>.github.io/<nom-du-dépôt>/` — l'ajouter à l'écran d'accueil du téléphone.
 
 Le portefeuille est sauvegardé sur une branche à part nommée `etat`.
