@@ -180,7 +180,7 @@ def generer_page_actions(etat, res, dossier, erreurs_du_jour):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Actions réelles</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icone.svg"><meta name="theme-color" content="#2f5d8a">
 <style>{STYLE}{STYLE_SUIVI}{STYLE_ACTIONS}</style></head><body><main>
-{NAV.format(a1="", a2="actif", a3="")}
+{NAV.format(a1="", a2="actif", a3="", a4="")}
 <div class="tete"><h1>Actions réelles</h1><span class="badge">cours réels · argent fictif</span></div>
 <p class="sous">Séance du {titre_date} · mis à jour le {_quand(etat.get('derniere_execution'))}</p>
 {''.join(f'<div class="alerte">{a}</div>' for a in alertes)}

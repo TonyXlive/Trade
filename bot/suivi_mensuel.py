@@ -109,7 +109,7 @@ def generer_page_mensuel(etat, r, dossier, erreurs):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Mes 50 € par mois</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icone.svg"><meta name="theme-color" content="#2f5d8a">
 <style>{STYLE}{STYLE_SUIVI}{STYLE_ACTIONS}.kpi span{{display:inline}}.kpi b{{margin:2px 0}}</style></head><body><main>
-{NAV.format(a1="", a2="", a3="actif")}
+{NAV.format(a1="", a2="", a3="actif", a4="")}
 <div class="tete"><h1>Mes 50 € par mois</h1><span class="badge">cours réels · argent fictif</span></div>
 <p class="sous">Séance du {date_fr(date.fromisoformat(dern)) if dern else '—'} · mis à jour le {_quand(etat.get('derniere_execution'))}</p>
 {''.join(f'<div class="alerte">{a}</div>' for a in alertes)}

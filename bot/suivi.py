@@ -12,13 +12,14 @@ MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août
 MOIS_COURT = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
 JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 
-NAV = ('<nav class="onglets"><a href="index.html" class="{a1}">Marchés fictifs</a>'
-       '<a href="actions.html" class="{a2}">Actions réelles</a>'
-       '<a href="mensuel.html" class="{a3}">Mes 50 €/mois</a></nav>')
+NAV = ('<nav class="onglets"><a href="index.html" class="{a1}">Fictif</a>'
+       '<a href="actions.html" class="{a2}">Actions</a>'
+       '<a href="daytrading.html" class="{a4}">Day trading</a>'
+       '<a href="mensuel.html" class="{a3}">50 €/mois</a></nav>')
 
 STYLE_SUIVI = """
 .onglets{display:flex;gap:6px;margin:0 0 14px}.onglets a{flex:1;text-align:center;padding:8px 6px;line-height:1.2;border-radius:99px;
-border:1px solid var(--bord);color:var(--texte);text-decoration:none;font-size:.9rem;background:var(--carte)}
+border:1px solid var(--bord);color:var(--texte);text-decoration:none;font-size:.82rem;background:var(--carte)}
 .onglets a.actif{background:var(--accent);border-color:var(--accent);color:#fff}
 .tete{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
 .valeur{font-size:2.4rem;font-weight:700;font-variant-numeric:tabular-nums;margin:6px 0 0}
@@ -140,7 +141,7 @@ def generer_page_suivi(sim, meta, dossier: str):
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Portefeuille fictif</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icone.svg"><meta name="theme-color" content="#2f5d8a">
 <style>{STYLE}{STYLE_SUIVI}</style></head><body><main>
-{NAV.format(a1="actif", a2="", a3="")}
+{NAV.format(a1="actif", a2="", a3="", a4="")}
 <div class="tete"><h1>Marchés fictifs</h1><span class="badge">argent fictif</span></div>
 <p class="sous">Journée {j} — {date_fr(d_jour)} · mis à jour le {maj}</p>
 {''.join(f'<div class="alerte">{a}</div>' for a in alertes)}

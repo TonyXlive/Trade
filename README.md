@@ -48,6 +48,11 @@ python -m bot.portefeuille --nouveau  # repart de zéro
   maximale par position. Le bot est comparé chaque jour à un simple placement sur l'indice
   S&P 500 : s'il ne fait pas mieux, il ne sert à rien. Cours gratuits Yahoo (secours Stooq),
   aucun ordre réel. Ce mode a besoin d'internet : il tourne sur GitHub ou sur ton PC.
+- **Day trading** : achat et revente dans la même journée, rien n'est gardé la nuit.
+  11 actions et indices américains très échangés, vrais cours en barres de 5 minutes,
+  10 000 $ fictifs. Chaque séance terminée est rejouée barre après barre, sans regarder la
+  suite. Règle : cassure du range des 15 premières minutes (à la hausse ou à la baisse),
+  stop au milieu du range, objectif 2 fois le risque, tout fermé à 15 h 55 (New York).
 - **Mes 50 €/mois** : ta situation réelle. Deux portefeuilles partent de zéro et reçoivent
   50 € au début de chaque mois (vrai taux euro/dollar). L'un suit le bot avec des morceaux
   d'action, l'autre achète l'indice S&P 500 chaque mois. Mêmes frais : 1 $ par ordre.
@@ -97,7 +102,7 @@ backtest à « 68 % de réussite » ne prouve rien : regardez la répartition.
 ```
 python -m unittest discover -s tests -v
 ```
-82 tests : calcul de Kelly, chaque règle de risque, arrêt d'urgence, comptabilité,
+101 tests : calcul de Kelly, chaque règle de risque, arrêt d'urgence, comptabilité,
 respect des plafonds jour par jour, détection du biais, rapports, et pour le mode
 quotidien : reprise, rattrapage, un seul jour joué par jour réel, arrêt puis reprise ;
 pour les actions réelles : lecture des cours, secours en cas de panne, stops, objectifs,

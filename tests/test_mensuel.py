@@ -162,7 +162,8 @@ class TestBoutEnBout(unittest.TestCase):
             for f in ["actions.html", "mensuel.html"]:
                 with open(os.path.join(d, f), encoding="utf-8") as fh:
                     page = fh.read()
-                self.assertIn("Mes 50 €/mois", page, "onglet présent dans la navigation")
+                self.assertIn("50 €/mois", page, "onglet présent dans la navigation")
+                self.assertIn("Day trading", page)
             with open(os.path.join(d, "mensuel.html"), encoding="utf-8") as fh:
                 page = fh.read()
             self.assertIn("Total versé", page)

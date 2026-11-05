@@ -139,7 +139,7 @@ def main(argv=None):
 
 def executer_reels(telecharger=None, maintenant=None, dossier_etat=DOSSIER_ETAT, dossier_page=DOSSIER_PAGE,
                    dossier_stop=RACINE, bavard=True):
-    """Télécharge les vrais cours une seule fois, puis met à jour « Actions réelles » et « Mes 50 €/mois ».
+    """Télécharge les vrais cours une seule fois, puis met à jour « Actions réelles », « Day trading » et « Mes 50 €/mois ».
     Un problème sur l'un ne bloque jamais l'autre ni les marchés fictifs."""
     from bot.actions_reelles import executer_actions, telecharger_tout
     from bot.mensuel import executer_mensuel, telecharger_devise, DEVISE
@@ -153,6 +153,12 @@ def executer_reels(telecharger=None, maintenant=None, dossier_etat=DOSSIER_ETAT,
                          maintenant=maintenant, bavard=bavard, cours=cours, erreurs_cours=erreurs)
     except Exception as e:  # noqa: BLE001
         print(f"Actions réelles : échec ({e}).")
+    try:
+        from bot.daytrading import executer_daytrading
+        executer_daytrading(os.path.join(dossier_etat, "daytrading.json"), dossier_page, dossier_stop,
+                            telecharger=telecharger, maintenant=maintenant, bavard=bavard)
+    except Exception as e:  # noqa: BLE001
+        print(f"Day trading : échec ({e}).")
     try:
         devise, err = telecharger_devise(telecharger)
         cours_m = dict(cours)

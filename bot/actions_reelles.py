@@ -29,7 +29,9 @@ NOMS = {"SPY": "Indice S&P 500 (ETF SPY)", "QQQ": "Indice Nasdaq 100 (ETF QQQ)",
 
 
 def nom(symbole):
-    return f"{NOMS[symbole]} ({symbole})" if symbole in NOMS and NOMS[symbole] != symbole else symbole
+    if symbole not in NOMS or NOMS[symbole] == symbole:
+        return symbole
+    return NOMS[symbole] if f"({symbole})" in NOMS[symbole] or f" {symbole})" in NOMS[symbole] else f"{NOMS[symbole]} ({symbole})"
 
 
 REGLES = {
