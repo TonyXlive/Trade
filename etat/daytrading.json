@@ -1,0 +1,303 @@
+{
+ "version": 1,
+ "date_debut": "2026-11-05",
+ "derniere_date": "2026-11-06",
+ "capital": 10144.99,
+ "parts_indice": 13.063869756790677,
+ "historique": [
+  {
+   "date": "2026-11-05",
+   "pnl": 187.12,
+   "valeur": 10187.12,
+   "nb": 8,
+   "indice": 9577.51,
+   "stop_actif": false
+  },
+  {
+   "date": "2026-11-06",
+   "pnl": -42.13,
+   "valeur": 10144.99,
+   "nb": 5,
+   "indice": 9606.39,
+   "stop_actif": false
+  }
+ ],
+ "operations": [
+  {
+   "date": "2026-11-05",
+   "symbole": "NVDA",
+   "cote": "baisse",
+   "heure_entree": "09:50",
+   "prix_entree": 190.8518,
+   "actions": 13,
+   "stop": 193.8676,
+   "objectif": 184.8204,
+   "risque": 41.2,
+   "range": [
+    191.5101,
+    196.225
+   ],
+   "heure_sortie": "10:20",
+   "prix_sortie": 184.8574,
+   "motif": "objectif",
+   "pnl": 75.93,
+   "frais": 2.0,
+   "r": 1.84
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "SPY",
+   "cote": "baisse",
+   "heure_entree": "09:50",
+   "prix_entree": 755.7688,
+   "actions": 3,
+   "stop": 761.435,
+   "objectif": 744.4363,
+   "risque": 19.0,
+   "range": [
+    756.9001,
+    765.97
+   ],
+   "heure_sortie": "10:40",
+   "prix_sortie": 744.5852,
+   "motif": "objectif",
+   "pnl": 31.55,
+   "frais": 2.0,
+   "r": 1.66
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "QQQ",
+   "cote": "baisse",
+   "heure_entree": "09:50",
+   "prix_entree": 669.4761,
+   "actions": 3,
+   "stop": 677.275,
+   "objectif": 653.8782,
+   "risque": 25.4,
+   "range": [
+    670.91,
+    683.64
+   ],
+   "heure_sortie": "10:45",
+   "prix_sortie": 654.009,
+   "motif": "objectif",
+   "pnl": 44.4,
+   "frais": 2.0,
+   "r": 1.75
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "MSFT",
+   "cote": "baisse",
+   "heure_entree": "09:50",
+   "prix_entree": 546.5957,
+   "actions": 4,
+   "stop": 552.595,
+   "objectif": 534.597,
+   "risque": 26.0,
+   "range": [
+    547.57,
+    557.62
+   ],
+   "heure_sortie": "10:50",
+   "prix_sortie": 534.7039,
+   "motif": "objectif",
+   "pnl": 45.57,
+   "frais": 2.0,
+   "r": 1.75
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "AAPL",
+   "cote": "baisse",
+   "heure_entree": "10:25",
+   "prix_entree": 350.5799,
+   "actions": 7,
+   "stop": 353.165,
+   "objectif": 345.4096,
+   "risque": 20.1,
+   "range": [
+    350.95,
+    355.38
+   ],
+   "heure_sortie": "11:45",
+   "prix_sortie": 345.4787,
+   "motif": "objectif",
+   "pnl": 33.71,
+   "frais": 2.0,
+   "r": 1.68
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "AMZN",
+   "cote": "baisse",
+   "heure_entree": "10:45",
+   "prix_entree": 256.7186,
+   "actions": 3,
+   "stop": 269.73,
+   "objectif": 230.6959,
+   "risque": 41.03,
+   "range": [
+    266.23,
+    273.23
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 260.5621,
+   "motif": "fermeture de fin de journée",
+   "pnl": -13.53,
+   "frais": 2.0,
+   "r": -0.33
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "GOOGL",
+   "cote": "baisse",
+   "heure_entree": "10:50",
+   "prix_entree": 279.7341,
+   "actions": 4,
+   "stop": 291.795,
+   "objectif": 255.6122,
+   "risque": 50.24,
+   "range": [
+    287.99,
+    295.6
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 282.6565,
+   "motif": "fermeture de fin de journée",
+   "pnl": -13.69,
+   "frais": 2.0,
+   "r": -0.27
+  },
+  {
+   "date": "2026-11-05",
+   "symbole": "META",
+   "cote": "baisse",
+   "heure_entree": "10:55",
+   "prix_entree": 590.9718,
+   "actions": 1,
+   "stop": 625.82,
+   "objectif": 521.2754,
+   "risque": 36.85,
+   "range": [
+    616.65,
+    634.99
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 605.7911,
+   "motif": "fermeture de fin de journée",
+   "pnl": -16.82,
+   "frais": 2.0,
+   "r": -0.46
+  },
+  {
+   "date": "2026-11-06",
+   "symbole": "QQQ",
+   "cote": "hausse",
+   "heure_entree": "09:50",
+   "prix_entree": 662.8125,
+   "actions": 3,
+   "stop": 658.45,
+   "objectif": 671.5376,
+   "risque": 15.09,
+   "range": [
+    655.17,
+    661.73
+   ],
+   "heure_sortie": "10:25",
+   "prix_sortie": 658.3183,
+   "motif": "stop",
+   "pnl": -15.48,
+   "frais": 2.0,
+   "r": -1.03
+  },
+  {
+   "date": "2026-11-06",
+   "symbole": "SPY",
+   "cote": "hausse",
+   "heure_entree": "09:50",
+   "prix_entree": 740.7381,
+   "actions": 3,
+   "stop": 736.785,
+   "objectif": 748.6444,
+   "risque": 13.86,
+   "range": [
+    734.58,
+    738.99
+   ],
+   "heure_sortie": "12:35",
+   "prix_sortie": 736.6376,
+   "motif": "stop",
+   "pnl": -14.3,
+   "frais": 2.0,
+   "r": -1.03
+  },
+  {
+   "date": "2026-11-06",
+   "symbole": "AAPL",
+   "cote": "hausse",
+   "heure_entree": "09:55",
+   "prix_entree": 343.3986,
+   "actions": 7,
+   "stop": 339.9925,
+   "objectif": 350.2107,
+   "risque": 25.84,
+   "range": [
+    338.3,
+    341.685
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 342.2965,
+   "motif": "fermeture de fin de journée",
+   "pnl": -9.71,
+   "frais": 2.0,
+   "r": -0.38
+  },
+  {
+   "date": "2026-11-06",
+   "symbole": "TSLA",
+   "cote": "hausse",
+   "heure_entree": "10:00",
+   "prix_entree": 356.5713,
+   "actions": 7,
+   "stop": 351.2,
+   "objectif": 367.3139,
+   "risque": 39.6,
+   "range": [
+    347.6,
+    354.8
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 358.1333,
+   "motif": "fermeture de fin de journée",
+   "pnl": 8.93,
+   "frais": 2.0,
+   "r": 0.23
+  },
+  {
+   "date": "2026-11-06",
+   "symbole": "MSFT",
+   "cote": "hausse",
+   "heure_entree": "10:30",
+   "prix_entree": 532.8365,
+   "actions": 4,
+   "stop": 528.5255,
+   "objectif": 541.4586,
+   "risque": 19.24,
+   "range": [
+    524.612,
+    532.439
+   ],
+   "heure_sortie": "15:55",
+   "prix_sortie": 530.4439,
+   "motif": "fermeture de fin de journée",
+   "pnl": -11.57,
+   "frais": 2.0,
+   "r": -0.6
+  }
+ ],
+ "erreurs": [],
+ "derniere_execution": "2026-11-07 08:51",
+ "stop_actif": false
+}

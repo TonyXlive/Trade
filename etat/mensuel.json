@@ -1,0 +1,117 @@
+{
+ "version": 1,
+ "date_debut": "2026-11-03",
+ "derniere_date": "2026-11-06",
+ "bot": {
+  "cash": 44.055477010712835,
+  "positions": [
+   {
+    "symbole": "LLY",
+    "date_entree": "2026-11-04",
+    "prix_entree": 1417.99,
+    "actions": 0.006034,
+    "cout": 9.56,
+    "stop": 1324.9871,
+    "objectif": 1603.9958,
+    "jours": 2,
+    "dernier_cours": 1354.0
+   }
+  ],
+  "transactions": [
+   {
+    "symbole": "MA",
+    "date_entree": "2026-11-04",
+    "prix_entree": 672.68,
+    "actions": 0.016685,
+    "cout": 12.22,
+    "stop": 644.9943,
+    "objectif": 728.0514,
+    "jours": 2,
+    "dernier_cours": 652.7,
+    "date_sortie": "2026-11-06",
+    "prix_sortie": 642.25,
+    "motif": "stop (ouverture sous le stop)",
+    "pnl": -2.5
+   }
+  ],
+  "frais": 3.0,
+  "ordres": 3
+ },
+ "indice": {
+  "cash": 0.0,
+  "parts": 0.07306953005899118,
+  "frais": 1.0,
+  "ordres": 1,
+  "achats": [
+   {
+    "date": "2026-11-03",
+    "montant": 55.12,
+    "prix": 754.35,
+    "parts": 0.07307
+   }
+  ]
+ },
+ "verse_eur": 50.0,
+ "versements": [
+  {
+   "mois": "2026-11",
+   "date": "2026-11-03",
+   "eur": 50.0,
+   "taux": 1.1225,
+   "usd": 56.12
+  }
+ ],
+ "historique": [
+  {
+   "date": "2026-11-03",
+   "bot_usd": 56.12,
+   "indice_usd": 55.12,
+   "taux": 1.1225,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": 56.12
+  },
+  {
+   "date": "2026-11-04",
+   "bot_usd": 54.12,
+   "indice_usd": 56.03,
+   "taux": 1.1257,
+   "verse_eur": 50.0,
+   "achats": [
+    "LLY",
+    "MA"
+   ],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-05",
+   "bot_usd": 53.52,
+   "indice_usd": 53.56,
+   "taux": 1.122,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-06",
+   "bot_usd": 52.23,
+   "indice_usd": 53.73,
+   "taux": 1.1145,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [
+    [
+     "MA",
+     -2.5
+    ]
+   ],
+   "versement": null
+  }
+ ],
+ "taux": 1.1145,
+ "erreurs": [],
+ "derniere_execution": "2026-11-07 08:51"
+}

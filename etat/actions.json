@@ -1,0 +1,646 @@
+{
+ "version": 1,
+ "date_debut": "2026-10-30",
+ "derniere_date": "2026-11-06",
+ "cash": 2875.8514649999997,
+ "parts_indice": 13.23241412163235,
+ "positions": [
+  {
+   "symbole": "LLY",
+   "date_entree": "2026-10-30",
+   "prix_entree": 1418.2488,
+   "actions": 1,
+   "cout": 1418.25,
+   "stop": 1321.0571,
+   "objectif": 1612.6321,
+   "jours": 5,
+   "dernier_cours": 1354.0,
+   "perte_max": 97.19
+  },
+  {
+   "symbole": "MA",
+   "date_entree": "2026-11-02",
+   "prix_entree": 658.429,
+   "actions": 3,
+   "cout": 1975.29,
+   "stop": 632.7571,
+   "objectif": 709.7729,
+   "jours": 4,
+   "dernier_cours": 652.7,
+   "perte_max": 77.02
+  },
+  {
+   "symbole": "V",
+   "date_entree": "2026-11-02",
+   "prix_entree": 425.7228,
+   "actions": 4,
+   "cout": 1702.89,
+   "stop": 409.7714,
+   "objectif": 457.6255,
+   "jours": 4,
+   "dernier_cours": 422.65,
+   "perte_max": 63.81
+  },
+  {
+   "symbole": "PG",
+   "date_entree": "2026-11-04",
+   "prix_entree": 167.4037,
+   "actions": 11,
+   "cout": 1841.44,
+   "stop": 160.2671,
+   "objectif": 181.6768,
+   "jours": 2,
+   "dernier_cours": 165.4,
+   "perte_max": 78.5
+  }
+ ],
+ "transactions": [
+  {
+   "symbole": "XOM",
+   "date_entree": "2026-10-30",
+   "prix_entree": 187.3436,
+   "actions": 10,
+   "cout": 1873.44,
+   "stop": 178.9771,
+   "objectif": 204.0767,
+   "jours": 2,
+   "dernier_cours": 177.46,
+   "perte_max": 83.67,
+   "date_sortie": "2026-11-03",
+   "prix_sortie": 177.911,
+   "motif": "stop (ouverture sous le stop)",
+   "pnl": -94.33,
+   "r": -1.13
+  },
+  {
+   "symbole": "MSFT",
+   "date_entree": "2026-11-04",
+   "prix_entree": 556.0779,
+   "actions": 3,
+   "cout": 1668.23,
+   "stop": 525.7486,
+   "objectif": 616.7365,
+   "jours": 2,
+   "dernier_cours": 530.61,
+   "perte_max": 90.99,
+   "date_sortie": "2026-11-06",
+   "prix_sortie": 525.4272,
+   "motif": "stop (ouverture sous le stop)",
+   "pnl": -91.95,
+   "r": -1.01
+  }
+ ],
+ "historique": [
+  {
+   "date": "2026-10-30",
+   "valeur": 9998.35,
+   "indice": 10000.0,
+   "entrees": [
+    "LLY",
+    "XOM"
+   ],
+   "sorties": [],
+   "bloque": false
+  },
+  {
+   "date": "2026-11-02",
+   "valeur": 9914.16,
+   "indice": 9952.1,
+   "entrees": [
+    "MA",
+    "V"
+   ],
+   "sorties": [],
+   "bloque": false
+  },
+  {
+   "date": "2026-11-03",
+   "valeur": 9841.84,
+   "indice": 9981.87,
+   "entrees": [],
+   "sorties": [
+    [
+     "XOM",
+     -94.33
+    ]
+   ],
+   "bloque": false
+  },
+  {
+   "date": "2026-11-04",
+   "valeur": 9989.8,
+   "indice": 10146.75,
+   "entrees": [
+    "PG",
+    "MSFT"
+   ],
+   "sorties": [],
+   "bloque": false
+  },
+  {
+   "date": "2026-11-05",
+   "valeur": 9768.31,
+   "indice": 9699.36,
+   "entrees": [],
+   "sorties": [],
+   "bloque": false
+  },
+  {
+   "date": "2026-11-06",
+   "valeur": 9697.95,
+   "indice": 9729.66,
+   "entrees": [],
+   "sorties": [
+    [
+     "MSFT",
+     -91.95
+    ]
+   ],
+   "bloque": false
+  }
+ ],
+ "erreurs": [],
+ "pic": 10000.0,
+ "derniere_execution": "2026-11-07 08:51",
+ "stop_actif": false,
+ "variantes": {
+  "Stop plus serré": {
+   "version": 1,
+   "date_debut": "2026-11-02",
+   "derniere_date": "2026-11-06",
+   "cash": 7812.160729550001,
+   "parts_indice": 13.296104241457252,
+   "positions": [
+    {
+     "symbole": "PG",
+     "date_entree": "2026-11-04",
+     "prix_entree": 167.4037,
+     "actions": 12,
+     "cout": 2008.84,
+     "stop": 162.0304,
+     "objectif": 178.1502,
+     "jours": 2,
+     "dernier_cours": 165.4,
+     "perte_max": 64.48
+    }
+   ],
+   "transactions": [
+    {
+     "symbole": "MA",
+     "date_entree": "2026-11-02",
+     "prix_entree": 658.429,
+     "actions": 3,
+     "cout": 1975.29,
+     "stop": 639.0929,
+     "objectif": 697.1013,
+     "jours": 4,
+     "dernier_cours": 652.7,
+     "perte_max": 58.01,
+     "date_sortie": "2026-11-06",
+     "prix_sortie": 638.7734,
+     "motif": "stop",
+     "pnl": -58.97,
+     "r": -1.02
+    },
+    {
+     "symbole": "V",
+     "date_entree": "2026-11-02",
+     "prix_entree": 425.7228,
+     "actions": 4,
+     "cout": 1702.89,
+     "stop": 413.7061,
+     "objectif": 449.7561,
+     "jours": 4,
+     "dernier_cours": 422.65,
+     "perte_max": 48.07,
+     "date_sortie": "2026-11-06",
+     "prix_sortie": 413.4992,
+     "motif": "stop",
+     "pnl": -48.89,
+     "r": -1.02
+    },
+    {
+     "symbole": "LLY",
+     "date_entree": "2026-11-04",
+     "prix_entree": 1418.699,
+     "actions": 1,
+     "cout": 1418.7,
+     "stop": 1348.2378,
+     "objectif": 1559.6214,
+     "jours": 2,
+     "dernier_cours": 1354.0,
+     "perte_max": 70.46,
+     "date_sortie": "2026-11-06",
+     "prix_sortie": 1347.5637,
+     "motif": "stop",
+     "pnl": -71.14,
+     "r": -1.01
+    }
+   ],
+   "historique": [
+    {
+     "date": "2026-11-02",
+     "valeur": 9998.16,
+     "indice": 10000.0,
+     "entrees": [
+      "MA",
+      "V"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-03",
+     "valeur": 9945.04,
+     "indice": 10029.92,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": 10084.43,
+     "indice": 10195.59,
+     "entrees": [
+      "LLY",
+      "PG"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-05",
+     "valeur": 9922.33,
+     "indice": 9746.04,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": 9796.96,
+     "indice": 9776.49,
+     "entrees": [],
+     "sorties": [
+      [
+       "MA",
+       -58.97
+      ],
+      [
+       "V",
+       -48.89
+      ],
+      [
+       "LLY",
+       -71.14
+      ]
+     ],
+     "bloque": false
+    }
+   ],
+   "erreurs": [],
+   "pic": 10084.429999999998,
+   "reglages": {
+    "atr_stop": 1.5
+   },
+   "dernier_lot": []
+  },
+  "Stop plus large": {
+   "version": 1,
+   "date_debut": "2026-11-02",
+   "derniere_date": "2026-11-06",
+   "cash": 4361.459999999999,
+   "parts_indice": 13.296104241457252,
+   "positions": [
+    {
+     "symbole": "MA",
+     "date_entree": "2026-11-02",
+     "prix_entree": 658.429,
+     "actions": 2,
+     "cout": 1316.86,
+     "stop": 620.0857,
+     "objectif": 735.1157,
+     "jours": 4,
+     "dernier_cours": 652.7,
+     "perte_max": 76.69
+    },
+    {
+     "symbole": "V",
+     "date_entree": "2026-11-02",
+     "prix_entree": 425.7228,
+     "actions": 4,
+     "cout": 1702.89,
+     "stop": 401.9022,
+     "objectif": 473.3639,
+     "jours": 4,
+     "dernier_cours": 422.65,
+     "perte_max": 95.28
+    },
+    {
+     "symbole": "PG",
+     "date_entree": "2026-11-04",
+     "prix_entree": 167.4037,
+     "actions": 9,
+     "cout": 1506.63,
+     "stop": 156.7407,
+     "objectif": 188.7296,
+     "jours": 2,
+     "dernier_cours": 165.4,
+     "perte_max": 95.97
+    },
+    {
+     "symbole": "MSFT",
+     "date_entree": "2026-11-04",
+     "prix_entree": 556.0779,
+     "actions": 2,
+     "cout": 1112.16,
+     "stop": 510.7229,
+     "objectif": 646.7879,
+     "jours": 2,
+     "dernier_cours": 530.61,
+     "perte_max": 90.71
+    }
+   ],
+   "transactions": [],
+   "historique": [
+    {
+     "date": "2026-11-02",
+     "valeur": 9998.49,
+     "indice": 10000.0,
+     "entrees": [
+      "MA",
+      "V"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-03",
+     "valeur": 9956.29,
+     "indice": 10029.92,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": 10070.58,
+     "indice": 10195.59,
+     "entrees": [
+      "PG",
+      "MSFT"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-05",
+     "valeur": 9939.42,
+     "indice": 9746.04,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": 9907.28,
+     "indice": 9776.49,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    }
+   ],
+   "erreurs": [],
+   "pic": 10070.579999999998,
+   "reglages": {
+    "atr_stop": 3.0
+   },
+   "dernier_lot": []
+  },
+  "Objectif plus lointain": {
+   "version": 1,
+   "date_debut": "2026-11-02",
+   "derniere_date": "2026-11-06",
+   "cash": 2894.2799999999997,
+   "parts_indice": 13.296104241457252,
+   "positions": [
+    {
+     "symbole": "MA",
+     "date_entree": "2026-11-02",
+     "prix_entree": 658.429,
+     "actions": 3,
+     "cout": 1975.29,
+     "stop": 632.7571,
+     "objectif": 735.4449,
+     "jours": 4,
+     "dernier_cours": 652.7,
+     "perte_max": 77.02
+    },
+    {
+     "symbole": "V",
+     "date_entree": "2026-11-02",
+     "prix_entree": 425.7228,
+     "actions": 4,
+     "cout": 1702.89,
+     "stop": 409.7714,
+     "objectif": 473.5768,
+     "jours": 4,
+     "dernier_cours": 422.65,
+     "perte_max": 63.81
+    },
+    {
+     "symbole": "LLY",
+     "date_entree": "2026-11-04",
+     "prix_entree": 1418.699,
+     "actions": 1,
+     "cout": 1418.7,
+     "stop": 1324.9871,
+     "objectif": 1699.8347,
+     "jours": 2,
+     "dernier_cours": 1354.0,
+     "perte_max": 93.71
+    },
+    {
+     "symbole": "PG",
+     "date_entree": "2026-11-04",
+     "prix_entree": 167.4037,
+     "actions": 12,
+     "cout": 2008.84,
+     "stop": 160.2671,
+     "objectif": 188.8133,
+     "jours": 2,
+     "dernier_cours": 165.4,
+     "perte_max": 85.64
+    }
+   ],
+   "transactions": [],
+   "historique": [
+    {
+     "date": "2026-11-02",
+     "valeur": 9998.16,
+     "indice": 10000.0,
+     "entrees": [
+      "MA",
+      "V"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-03",
+     "valeur": 9945.04,
+     "indice": 10029.92,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": 10084.43,
+     "indice": 10195.59,
+     "entrees": [
+      "LLY",
+      "PG"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-05",
+     "valeur": 9922.33,
+     "indice": 9746.04,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": 9881.78,
+     "indice": 9776.49,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    }
+   ],
+   "erreurs": [],
+   "pic": 10084.429999999998,
+   "reglages": {
+    "objectif_r": 3.0
+   },
+   "dernier_lot": []
+  },
+  "Sorties plus rapides": {
+   "version": 1,
+   "date_debut": "2026-11-02",
+   "derniere_date": "2026-11-06",
+   "cash": 2894.2799999999997,
+   "parts_indice": 13.296104241457252,
+   "positions": [
+    {
+     "symbole": "MA",
+     "date_entree": "2026-11-02",
+     "prix_entree": 658.429,
+     "actions": 3,
+     "cout": 1975.29,
+     "stop": 632.7571,
+     "objectif": 709.7729,
+     "jours": 4,
+     "dernier_cours": 652.7,
+     "perte_max": 77.02
+    },
+    {
+     "symbole": "V",
+     "date_entree": "2026-11-02",
+     "prix_entree": 425.7228,
+     "actions": 4,
+     "cout": 1702.89,
+     "stop": 409.7714,
+     "objectif": 457.6255,
+     "jours": 4,
+     "dernier_cours": 422.65,
+     "perte_max": 63.81
+    },
+    {
+     "symbole": "LLY",
+     "date_entree": "2026-11-04",
+     "prix_entree": 1418.699,
+     "actions": 1,
+     "cout": 1418.7,
+     "stop": 1324.9871,
+     "objectif": 1606.1228,
+     "jours": 2,
+     "dernier_cours": 1354.0,
+     "perte_max": 93.71
+    },
+    {
+     "symbole": "PG",
+     "date_entree": "2026-11-04",
+     "prix_entree": 167.4037,
+     "actions": 12,
+     "cout": 2008.84,
+     "stop": 160.2671,
+     "objectif": 181.6768,
+     "jours": 2,
+     "dernier_cours": 165.4,
+     "perte_max": 85.64
+    }
+   ],
+   "transactions": [],
+   "historique": [
+    {
+     "date": "2026-11-02",
+     "valeur": 9998.16,
+     "indice": 10000.0,
+     "entrees": [
+      "MA",
+      "V"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-03",
+     "valeur": 9945.04,
+     "indice": 10029.92,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-04",
+     "valeur": 10084.43,
+     "indice": 10195.59,
+     "entrees": [
+      "LLY",
+      "PG"
+     ],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-05",
+     "valeur": 9922.33,
+     "indice": 9746.04,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    },
+    {
+     "date": "2026-11-06",
+     "valeur": 9881.78,
+     "indice": 9776.49,
+     "entrees": [],
+     "sorties": [],
+     "bloque": false
+    }
+   ],
+   "erreurs": [],
+   "pic": 10084.429999999998,
+   "reglages": {
+    "duree_max": 10
+   },
+   "dernier_lot": []
+  }
+ },
+ "dernier_lot": []
+}
