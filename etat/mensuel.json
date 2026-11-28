@@ -1,0 +1,317 @@
+{
+ "version": 1,
+ "date_debut": "2026-11-03",
+ "derniere_date": "2026-11-27",
+ "bot": {
+  "cash": 8.28558164091272,
+  "positions": [
+   {
+    "symbole": "LLY",
+    "date_entree": "2026-11-04",
+    "prix_entree": 1417.99,
+    "actions": 0.006034,
+    "cout": 9.56,
+    "stop": 1324.9871,
+    "objectif": 1603.9958,
+    "jours": 16,
+    "dernier_cours": 1392.38
+   },
+   {
+    "symbole": "PG",
+    "date_entree": "2026-11-09",
+    "prix_entree": 168.32,
+    "actions": 0.062471,
+    "cout": 11.52,
+    "stop": 160.4593,
+    "objectif": 184.0414,
+    "jours": 13,
+    "dernier_cours": 172.86
+   },
+   {
+    "symbole": "KO",
+    "date_entree": "2026-11-09",
+    "prix_entree": 96.03,
+    "actions": 0.109497,
+    "cout": 11.52,
+    "stop": 92.1029,
+    "objectif": 103.8842,
+    "jours": 13,
+    "dernier_cours": 97.4
+   },
+   {
+    "symbole": "AAPL",
+    "date_entree": "2026-11-11",
+    "prix_entree": 355.63,
+    "actions": 0.025959,
+    "cout": 10.23,
+    "stop": 336.4671,
+    "objectif": 393.9558,
+    "jours": 11,
+    "dernier_cours": 358.54
+   }
+  ],
+  "transactions": [
+   {
+    "symbole": "MA",
+    "date_entree": "2026-11-04",
+    "prix_entree": 672.68,
+    "actions": 0.016685,
+    "cout": 12.22,
+    "stop": 644.9943,
+    "objectif": 728.0514,
+    "jours": 2,
+    "dernier_cours": 652.7,
+    "date_sortie": "2026-11-06",
+    "prix_sortie": 642.25,
+    "motif": "stop (ouverture sous le stop)",
+    "pnl": -2.5
+   },
+   {
+    "symbole": "AMZN",
+    "date_entree": "2026-11-10",
+    "prix_entree": 270.87,
+    "actions": 0.023798,
+    "cout": 7.45,
+    "stop": 249.5171,
+    "objectif": 313.5758,
+    "jours": 8,
+    "dernier_cours": 246.82,
+    "date_sortie": "2026-11-20",
+    "prix_sortie": 249.5171,
+    "motif": "stop",
+    "pnl": -2.51
+   }
+  ],
+  "frais": 8.0,
+  "ordres": 8
+ },
+ "indice": {
+  "cash": 0.0,
+  "parts": 0.07306953005899118,
+  "frais": 1.0,
+  "ordres": 1,
+  "achats": [
+   {
+    "date": "2026-11-03",
+    "montant": 55.12,
+    "prix": 754.35,
+    "parts": 0.07307
+   }
+  ]
+ },
+ "verse_eur": 50.0,
+ "versements": [
+  {
+   "mois": "2026-11",
+   "date": "2026-11-03",
+   "eur": 50.0,
+   "taux": 1.1225,
+   "usd": 56.12
+  }
+ ],
+ "historique": [
+  {
+   "date": "2026-11-03",
+   "bot_usd": 56.12,
+   "indice_usd": 55.12,
+   "taux": 1.1225,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": 56.12
+  },
+  {
+   "date": "2026-11-04",
+   "bot_usd": 54.12,
+   "indice_usd": 56.03,
+   "taux": 1.1257,
+   "verse_eur": 50.0,
+   "achats": [
+    "LLY",
+    "MA"
+   ],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-05",
+   "bot_usd": 53.52,
+   "indice_usd": 53.56,
+   "taux": 1.122,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-06",
+   "bot_usd": 52.23,
+   "indice_usd": 53.73,
+   "taux": 1.1145,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [
+    [
+     "MA",
+     -2.5
+    ]
+   ],
+   "versement": null
+  },
+  {
+   "date": "2026-11-09",
+   "bot_usd": 50.58,
+   "indice_usd": 55.0,
+   "taux": 1.1227,
+   "verse_eur": 50.0,
+   "achats": [
+    "PG",
+    "KO"
+   ],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-10",
+   "bot_usd": 49.82,
+   "indice_usd": 54.8,
+   "taux": 1.1154,
+   "verse_eur": 50.0,
+   "achats": [
+    "AMZN"
+   ],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-11",
+   "bot_usd": 48.74,
+   "indice_usd": 55.52,
+   "taux": 1.1093,
+   "verse_eur": 50.0,
+   "achats": [
+    "AAPL"
+   ],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-12",
+   "bot_usd": 48.7,
+   "indice_usd": 55.32,
+   "taux": 1.1059,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-13",
+   "bot_usd": 49.13,
+   "indice_usd": 55.12,
+   "taux": 1.1028,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-16",
+   "bot_usd": 48.98,
+   "indice_usd": 54.07,
+   "taux": 1.1004,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-17",
+   "bot_usd": 48.71,
+   "indice_usd": 53.52,
+   "taux": 1.1001,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-18",
+   "bot_usd": 48.59,
+   "indice_usd": 53.36,
+   "taux": 1.0975,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-19",
+   "bot_usd": 47.7,
+   "indice_usd": 52.31,
+   "taux": 1.097,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-20",
+   "bot_usd": 46.51,
+   "indice_usd": 50.4,
+   "taux": 1.097,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [
+    [
+     "AMZN",
+     -2.51
+    ]
+   ],
+   "versement": null
+  },
+  {
+   "date": "2026-11-23",
+   "bot_usd": 46.67,
+   "indice_usd": 52.78,
+   "taux": 1.0915,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-24",
+   "bot_usd": 47.43,
+   "indice_usd": 52.52,
+   "taux": 1.0948,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-25",
+   "bot_usd": 47.42,
+   "indice_usd": 52.37,
+   "taux": 1.0973,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  },
+  {
+   "date": "2026-11-27",
+   "bot_usd": 47.46,
+   "indice_usd": 53.22,
+   "taux": 1.0939,
+   "verse_eur": 50.0,
+   "achats": [],
+   "ventes": [],
+   "versement": null
+  }
+ ],
+ "taux": 1.0939,
+ "erreurs": [],
+ "derniere_execution": "2026-11-28 13:07"
+}
